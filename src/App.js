@@ -1,12 +1,16 @@
-import { Console } from '@woowacourse/mission-utils';
+import { Console, MissionUtils } from '@woowacourse/mission-utils';
 
 const INPUT_CAR_NAME =
   '경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)';
 const NUMBER_OF_TIMES = "시도할 횟수는 몇 회인가요?"
 
 class App {
+
+  constructor(name){
+    this. name = name;
+    this. position = 0;
+  }
   async play() {
-    this.printGameMessage();
   }
 
   async printGameMessage() {
@@ -27,8 +31,24 @@ class App {
     return playerInput.every(name => this.belowThanFive(name));
 
     }
+ //게임 진행
+    generateRandomNumbers(){
+      return MissionUtils.Random.pickNumber(0,9);
+    }
+    
+    moreThanFour(randomNumber){
+      return randomNumber >= 4
+    }
   }
 
+  moveBy(){
+    const randomNumber = this.generateRandomNumbers();
+  if(this.moreThanFour(randomNumber)){
+    this.position +=1;
+  }  }
+
+
+ 
 
 }
 
