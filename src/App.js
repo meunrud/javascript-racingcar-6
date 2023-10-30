@@ -40,12 +40,13 @@ class App {
       return randomNumber >= 4
     }
   }
-
   moveBy(){
     const randomNumber = this.generateRandomNumbers();
   if(this.moreThanFour(randomNumber)){
     this.position +=1;
   }  }
+
+ 
 
 
  
