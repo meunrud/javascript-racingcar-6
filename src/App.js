@@ -9,9 +9,22 @@ class App {
   }
 
   async printGameMessage() {
-    const playerInput = await Console.readLineAsync(INPUT_CAR_NAME);
-    return playerInput;
+    const playerInput = await Console.readLineAsync(INPUT_CAR_NAME).split(",");
+    return playerInput.split(",").map(name => name.trim());
   }
+
+  belowThanFive(carName) {
+    return carName.length <= 5;
+  }
+  
+
+  isValidPlayerCarName(playerInput) {
+    return playerInput.every(name => this.belowThanFive(name));
+
+    }
+  }
+
+
 }
 
 export default App;
